@@ -4,6 +4,9 @@ import CodeEditor from "@/components/code-editor";
 import useData from "@/hooks/useData";
 import { usePreferenceStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
+import { Card, CardContent } from "@/components/ui/card";
+import ExportOptions from "@/components/export-options";
+import ThemeOptions from "@/components/theme-options";
 
 export default function Home() {
   const { themes } = useData();
@@ -30,6 +33,13 @@ export default function Home() {
           <CodeEditor />
         </div>
       </div>
+
+      <Card className="fixed bottom-16 left-1/2 -translate-x-1/2 px-8 py-6 bg-neutral-900/80 backdrop-blur">
+        <CardContent className="flex flex-wrap gap-6 p-0 items-center">
+          <ThemeOptions />
+          <ExportOptions targetRef={editorRef} />
+        </CardContent>
+      </Card>
     </main>
   );
 }
