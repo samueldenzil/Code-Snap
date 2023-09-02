@@ -1,4 +1,3 @@
-"use client";
 import { useEffect } from "react";
 import Editor from "react-simple-code-editor";
 import hljs from "highlight.js";
@@ -9,7 +8,7 @@ import useData from "@/hooks/useData";
 import { usePreferenceStore } from "@/lib/store";
 
 export default function CodeEditor() {
-  const { codeSnippets, themes, fonts } = useData();
+  const { codeSnippets, fonts } = useData();
   const {
     autoDetectLanguage,
     code,
@@ -58,7 +57,10 @@ export default function CodeEditor() {
             onChange={(e) =>
               usePreferenceStore.setState({ title: e.target.value })
             }
-            className="bg-transparent w-full text-center text-gray-400 text-sm font-medium focus:outline-none"
+            className={cn(
+              "bg-transparent w-full text-center text-sm font-medium focus:outline-none",
+              darkMode ? "text-gray-400" : "text-gray-600"
+            )}
           />
         </div>
       </header>
@@ -79,9 +81,9 @@ export default function CodeEditor() {
           highlight={(code) =>
             hljs.highlight(code, { language: language }).value
           }
-          className={cn(fonts[fontStyle].src.className)}
           padding={10}
           style={{
+            fontFamily: fonts[fontStyle].name,
             fontSize: fontSize,
           }}
           textareaClassName="focus:outline-none"

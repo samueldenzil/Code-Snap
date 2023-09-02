@@ -1,32 +1,4 @@
-"use client";
 import { useMemo } from "react";
-import {
-  JetBrains_Mono,
-  Inconsolata,
-  Fira_Code,
-  Victor_Mono,
-  Source_Code_Pro,
-  IBM_Plex_Mono,
-  Roboto_Mono,
-  Ubuntu_Mono,
-  Courier_Prime,
-  Anonymous_Pro,
-  Oxygen_Mono,
-  Red_Hat_Mono,
-} from "next/font/google";
-
-const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"], weight: ["400"] });
-const inconsolata = Inconsolata({ subsets: ["latin"], weight: ["400"] });
-const firaCode = Fira_Code({ subsets: ["latin"], weight: ["400"] });
-const victorMono = Victor_Mono({ subsets: ["latin"], weight: ["400"] });
-const sourceCodePro = Source_Code_Pro({ subsets: ["latin"], weight: ["400"] });
-const ibmPlexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"] });
-const robotoMono = Roboto_Mono({ subsets: ["latin"], weight: ["400"] });
-const ubuntuMono = Ubuntu_Mono({ subsets: ["latin"], weight: ["400"] });
-const courierPrime = Courier_Prime({ subsets: ["latin"], weight: ["400"] });
-const anonymousPro = Anonymous_Pro({ subsets: ["latin"], weight: ["400"] });
-const oxygenMono = Oxygen_Mono({ subsets: ["latin"], weight: ["400"] });
-const redHatMono = Red_Hat_Mono({ subsets: ["latin"], weight: ["400"] });
 
 export default function useData() {
   const languages = useMemo(
@@ -135,39 +107,39 @@ export default function useData() {
     () => ({
       jetBrainsMono: {
         name: "JetBrains Mono",
-        src: jetBrainsMono,
+        src: "https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap",
       },
       inconsolata: {
         name: "Inconsolata",
-        src: inconsolata,
+        src: "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap",
       },
       firaCode: {
         name: "Fira Code",
-        src: firaCode,
+        src: "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap",
       },
-      //   cascadiaCode: {
-      //     name: "Cascadia Code",
-      //     src: "https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css",
-      //   },
+      cascadiaCode: {
+        name: "Cascadia Code",
+        src: "https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css",
+      },
       victorMono: {
         name: "Victor Mono",
-        src: victorMono,
+        src: "https://fonts.googleapis.com/css2?family=Victor+Mono&display=swap",
       },
       sourceCodePro: {
         name: "Source Code Pro",
-        src: sourceCodePro,
+        src: "https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap",
       },
       ibmPlexMono: {
         name: "IBM Plex Mono",
-        src: ibmPlexMono,
+        src: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap",
       },
       robotoMono: {
         name: "Roboto Mono",
-        src: robotoMono,
+        src: "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap",
       },
       ubuntuMono: {
         name: "Ubuntu Mono",
-        src: ubuntuMono,
+        src: "https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap",
       },
       spaceMono: {
         name: "Space Mono",
@@ -175,19 +147,19 @@ export default function useData() {
       },
       courierPrime: {
         name: "Courier Prime",
-        src: courierPrime,
+        src: "https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap",
       },
       anonymousPro: {
         name: "Anonymous Pro",
-        src: anonymousPro,
+        src: "https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap",
       },
       oxygenMono: {
         name: "Oxygen Mono",
-        src: oxygenMono,
+        src: "https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap",
       },
       redHatMono: {
         name: "Red Hat Mono",
-        src: redHatMono,
+        src: "https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap",
       },
     }),
     []
