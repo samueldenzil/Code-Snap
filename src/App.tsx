@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Resizable } from "re-resizable";
 import useData from "@/hooks/useData";
 import { usePreferenceStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
@@ -18,7 +19,7 @@ function App() {
   const { theme, padding, showBackground, fontStyle } = usePreferenceStore();
 
   const editorRef = useRef(null);
-
+  // console.log(editorRef.current?.offsetWidth);
   return (
     <main className="dark min-h-screen flex flex-col justify-center bg-neutral-950 text-gray-100">
       <link
@@ -31,17 +32,23 @@ function App() {
         href={fonts[fontStyle].src}
         crossOrigin="anonymous"
       />
+
       <div className="mx-auto">
-        <div
-          className={cn(
-            "overflow-hidden mb-2 transition-all ease-out",
-            showBackground ? themes[theme].className : "ring ring-gray-900"
-          )}
-          style={{ padding: padding }}
-          ref={editorRef}
+        <Resizable
+          enable={{ left: true, right: true }}
+          minWidth={padding * 2 + 400}
         >
-          <CodeEditor />
-        </div>
+          <div
+            className={cn(
+              "overflow-hidden mb-2 transition-all ease-out",
+              showBackground ? themes[theme].className : "ring ring-gray-900"
+            )}
+            style={{ padding: padding }}
+            ref={editorRef}
+          >
+            <CodeEditor />
+          </div>
+        </Resizable>
       </div>
 
       <Card className="fixed bottom-16 left-1/2 -translate-x-1/2 px-8 py-6 bg-neutral-900/90 backdrop-blur">
