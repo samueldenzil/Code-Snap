@@ -5,7 +5,7 @@ export default function DarkModeSwitch() {
   const { darkMode } = usePreferenceStore();
 
   return (
-    <div>
+    <div className="w-max">
       <label className="block mb-2 text-xs font-medium text-neutral-400">
         Dark Mode
       </label>
@@ -14,7 +14,7 @@ export default function DarkModeSwitch() {
         onCheckedChange={(checked) =>
           usePreferenceStore.setState({ darkMode: checked })
         }
-        className=""
+        className="my-1.5"
       />
     </div>
   );
