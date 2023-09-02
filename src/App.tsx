@@ -43,7 +43,7 @@ function App() {
           enable={{ left: true, right: true }}
           minWidth={padding * 2 + 400}
           size={{ width, height: "auto" }}
-          onResize={(e, dir, ref) => setWidth(String(ref.offsetWidth))}
+          onResize={(_, __, ref) => setWidth(String(ref.offsetWidth))}
           onResizeStart={() => setShowWidth(true)}
           onResizeStop={() => setShowWidth(false)}
         >
