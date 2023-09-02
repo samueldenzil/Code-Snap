@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Resizable } from "re-resizable";
 import useData from "@/hooks/useData";
 import { usePreferenceStore } from "@/lib/store";
@@ -13,10 +13,15 @@ import FontSizeInput from "./components/controls/FontSizeInput";
 import PaddingSlider from "./components/controls/PaddingSlider";
 import BackgroundSwitch from "./components/controls/BackgroundSwitch";
 import DarkModeSwitch from "./components/controls/DarkModeSwitch";
+import WidthMeasurement from "./components/WidthMeasurement";
+import { Button } from "./components/ui/button";
+import { ResetIcon } from "@radix-ui/react-icons";
 
 function App() {
   const { themes, fonts } = useData();
   const { theme, padding, showBackground, fontStyle } = usePreferenceStore();
+  const [width, setWidth] = useState("auto");
+  const [showWidth, setShowWidth] = useState(false);
 
   const editorRef = useRef(null);
   // console.log(editorRef.current?.offsetWidth);
@@ -37,6 +42,10 @@ function App() {
         <Resizable
           enable={{ left: true, right: true }}
           minWidth={padding * 2 + 400}
+          size={{ width, height: "auto" }}
+          onResize={(e, dir, ref) => setWidth(String(ref.offsetWidth))}
+          onResizeStart={() => setShowWidth(true)}
+          onResizeStop={() => setShowWidth(false)}
         >
           <div
             className={cn(
@@ -47,6 +56,20 @@ function App() {
             ref={editorRef}
           >
             <CodeEditor />
+          </div>
+          <WidthMeasurement showWidth={showWidth} width={width} />
+          <div
+            className={cn(
+              "-mt-4 mx-auto w-fit transition",
+              showWidth || width === "auto"
+                ? "invisible opacity-0"
+                : "visible opacity-100"
+            )}
+          >
+            <Button size="sm" onClick={() => setWidth("auto")} variant="ghost">
+              <ResetIcon className="mr-2" />
+              Reset width
+            </Button>
           </div>
         </Resizable>
       </div>
