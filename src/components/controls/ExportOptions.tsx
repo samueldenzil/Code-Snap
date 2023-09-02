@@ -1,4 +1,4 @@
-import { MutableRefObject, RefObject } from "react";
+import { MutableRefObject } from "react";
 import { toBlob, toPng, toSvg } from "html-to-image";
 import { toast } from "react-hot-toast";
 import { usePreferenceStore } from "@/lib/store";
