@@ -17,10 +17,10 @@ interface PreferenceState {
 
 export const usePreferenceStore = create<PreferenceState>()(
   persist(
-    (set) => ({
+    (_) => ({
       code: "",
       title: "Untitled",
-      theme: "hyper",
+      theme: "sublime",
       darkMode: true,
       showBackground: true,
       language: "plaintext",
