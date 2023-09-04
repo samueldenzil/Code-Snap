@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import useData from "@/hooks/useData";
 import { usePreferenceStore } from "@/lib/store";
 import { MagicWandIcon } from "@radix-ui/react-icons";
@@ -37,13 +38,17 @@ export default function LanguageOptions() {
           {autoDetectLanguage && <MagicWandIcon className="mr-2" />}
           <SelectValue placeholder="Select Language" />
         </SelectTrigger>
-        <SelectContent className="dark max-h-64">
-          <SelectItem value="auto-detect">Auto Detect</SelectItem>
-          {Object.entries(languages).map(([lang, name]) => (
-            <SelectItem key={lang} value={lang}>
-              {name}
-            </SelectItem>
-          ))}
+        <SelectContent className="dark">
+          <ScrollArea className="h-72">
+            <div className="py-1">
+              <SelectItem value="auto-detect">Auto Detect</SelectItem>
+              {Object.entries(languages).map(([lang, name]) => (
+                <SelectItem key={lang} value={lang}>
+                  {name}
+                </SelectItem>
+              ))}
+            </div>
+          </ScrollArea>
         </SelectContent>
       </Select>
     </div>

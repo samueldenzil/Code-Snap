@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import useData from "@/hooks/useData";
 import { usePreferenceStore } from "@/lib/store";
 import { FontTypes } from "@/types/types";
@@ -27,12 +28,16 @@ export default function FontOptions() {
         <SelectTrigger className="w-40">
           <SelectValue placeholder="Select Font" />
         </SelectTrigger>
-        <SelectContent className="dark max-h-64">
-          {Object.entries(fonts).map(([id, font]) => (
-            <SelectItem key={id} value={id}>
-              {font.name}
-            </SelectItem>
-          ))}
+        <SelectContent className="dark">
+          <ScrollArea className="h-72">
+            <div className="py-1">
+              {Object.entries(fonts).map(([id, font]) => (
+                <SelectItem key={id} value={id}>
+                  {font.name}
+                </SelectItem>
+              ))}
+            </div>
+          </ScrollArea>
         </SelectContent>
       </Select>
     </div>
